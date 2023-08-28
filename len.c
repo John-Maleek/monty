@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
   * len - counts the number of elements in a stack

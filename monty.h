@@ -1,5 +1,5 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef MONTY_H
+#define MONTY_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -51,6 +51,5 @@ void add(stack_t **stack, unsigned int line_number);
 int get_opcode(stack_t **stack, char *opcode, int line_number);
 void free_stack(stack_t *stack);
 unsigned int len(stack_t *stack);
-size_t getline(char **buff, size_t *lol, FILE *fd);
 
 #endif

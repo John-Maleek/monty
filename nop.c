@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 /**
  *nop - function that does nothing
