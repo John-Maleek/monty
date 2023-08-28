@@ -8,11 +8,11 @@
 
 void push(stack_t **stack, char *n, unsigned int line_number)
 {
-	stack_t *new = NULL;
+	stack_t *new_node = NULL;
 	int i;
 
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
+	new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
@@ -32,13 +32,13 @@ void push(stack_t **stack, char *n, unsigned int line_number)
 			exit(EXIT_FAILURE);
 		}
 	}
-	new->n = atoi(n);
-	new->prev = NULL;
-	new->next = NULL;
+	new_node->n = atoi(n);
+	new_node->prev = NULL;
+	new_node->next = NULL;
 	if (*stack != NULL)
 	{
-		new->next = *stack;
-		(*stack)->prev = new;
+		new_node->next = *stack;
+		(*stack)->prev = new_node;
 	}
-	*stack = new;
+	*stack = new_node;
 }

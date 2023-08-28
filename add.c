@@ -17,12 +17,12 @@ void add(stack_t **stack, unsigned int line_number)
 
 	if (length < 2)
 	{
-		handle_error(ERR_ADD_USG, NULL, line_number, NULL);
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
 	}
 
 	x = val->n;
 	y = val->next->n;
-	val->next->n = a + b;
+	val->next->n = x + y;
 	*stack = val->next;
 	free(val);
 }

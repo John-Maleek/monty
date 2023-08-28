@@ -8,10 +8,11 @@
   * Return: Always 0
   */
 
-int main(__attribute__((unused)) int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
     stack_t *stack = NULL, *curr;
     int line_number = 0;
+    int read;
     char *buff = NULL, *opcode, *n;
     size_t lol = 0;
     FILE *fd;
@@ -28,7 +29,8 @@ int main(__attribute__((unused)) int argc, char const *argv[])
         fprintf(stderr, "Error: can't open file %s\n", argv[1]);
         exit(1);
     }
-    while ((getline(&buff, &lol, fd)) != -1)
+
+    while ((read = getline(&buff, &lol, fd)) != -1)
     {
         line_number++;
         opcode = strtok(buff, DELIMATOR);
@@ -43,7 +45,7 @@ int main(__attribute__((unused)) int argc, char const *argv[])
         }
         else
         {
-            find_opcode(&stack, opcode, line_number);
+            get_opcode(&stack, opcode, line_number);
         }
     }
     fclose(fd);

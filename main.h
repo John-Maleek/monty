@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <unistd.h>
+#include <fcntl.h>
 
 #define DELIMATOR "\n\t\r "
 
@@ -38,6 +40,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern instruction_t opcodes[];
 void push(stack_t **stack, char *n, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
@@ -47,6 +50,7 @@ void nop(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 int get_opcode(stack_t **stack, char *opcode, int line_number);
 void free_stack(stack_t *stack);
-unsigned int len(stack_t **stack);
+unsigned int len(stack_t *stack);
+size_t getline(char **buff, size_t *lol, FILE *fd);
 
 #endif
